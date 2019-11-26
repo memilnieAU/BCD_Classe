@@ -8,9 +8,9 @@ using System.Threading;
 
 namespace BCD_Classe
 {
-    
 
-    
+
+
 
     public class To7seg
     {
@@ -23,16 +23,27 @@ namespace BCD_Classe
 
             display.Init_SevenSeg();
             ShowNum(88);
-            display.Close_SevenSeg();
-            
+            Close();
+
 
         }
 
-        public void Test()
+        public void Test(string typeTest)
         {
-            
+            int testAdd = 0;
+            int testTime = 0;
+            if (typeTest == "t")
+            {
+                testAdd = 11;
+                testTime = 500;
+            }
+            else
+            {
+                testAdd = 1;
+                testTime = 75;
+            }
 
-            for (int i = 0; i < 99; i+=11)
+            for (int i = 0; i <= 99; i += testAdd)
             {
                 int bcdResult = 0;
                 int shift = 0;
@@ -40,7 +51,7 @@ namespace BCD_Classe
                 testTal = i;
                 while (testTal > 0)
                 {
-                    
+
                     bcdResult |= (testTal % 10) << (shift++ * 4);
 
 
@@ -50,20 +61,21 @@ namespace BCD_Classe
 
                 }
                 display.Disp_SevenSeg((short)bcdResult);
-                Thread.Sleep(500);
+                Thread.Sleep(testTime);
             }
-            display.Close_SevenSeg();
+
+            Close();
 
 
         }
 
-   public void ShowNum(int pulse)
+        public void ShowNum(int pulse)
         {
             int bcdResult = 0;
             int shift = 0;
             while (pulse > 0)
             {
-                int i = 0;
+                
                 bcdResult |= (pulse % 10) << (shift++ * 4);
 
 
@@ -86,7 +98,37 @@ namespace BCD_Classe
         }
 
 
+        public void HwTestMode()
+        {
+            bool brydUd = false;
+            while (!brydUd)
+            {
+                Console.WriteLine("Tast et tal eller t(Test) eller q(Break)");
+                string input = Console.ReadLine();
+                try
+                {
+                    if (input == "t" || input == "tt")
+                    {
+                        Test(input);
+                    }
+                    else if (input == "q")
+                    {
+                        Close();
+                        brydUd = true;
+                    }
+                    else
+                    {
+                        short tal = Convert.ToInt16(input);
+                        ShowNum(tal);
+                    }
+                }
+                catch (Exception)
+                {
 
+                    Console.WriteLine("Tast en gyldig værdi");
+                }
+            }
 
+        }
     }
 }

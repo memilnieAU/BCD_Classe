@@ -17,32 +17,20 @@ namespace BCD_Classe
            Resp = new RPi();
 
             To7seg to7Seg = new To7seg(Resp);
-            
 
-            while (true)
-            {
-                Console.WriteLine("Tast et tal eller t(Test) eller q(Break)");
-                string input = Console.ReadLine() ;
-                if (input != "q" && input != "t")
-                {
-                    short tal = Convert.ToInt16(input);
-                    to7Seg.ShowNum(tal);
-                }
-                else if (input == "q")
-                {
-                    break;
-                }
-                else if (input == "t")
-                {
-                    to7Seg.Test();
-                }
-                
-                
+
+            to7Seg.HwTestMode();
+
+
+
+
+            Console.WriteLine("Er tilbage i main");
+            Console.ReadLine();
 
             
             
 
-            }
+            
 
            
         
