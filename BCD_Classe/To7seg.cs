@@ -9,12 +9,22 @@ using System.Threading;
 namespace BCD_Classe
 {
 
-
+    /// <summary>
+    /// Denne klasse er for at konvetere og gøre det simpelt at skrive ud til 7-seg-displayet
+    /// De eneste 2 ting der skal oprettet i hoved programmet er:
+    /// 
+    /// To7seg to7Seg = new To7seg(Resp);
+    /// og 
+    /// to7Seg.ShowNum(int puls);
+    /// 
+    /// Men der udover er der en HwTestMode() som kan teste Hw ved hjælp af console
+    /// 
+    /// </summary>
 
 
     public class To7seg
     {
-        private static RPi Resp;
+        
         private static RPI.Display.SevenSeg display;
 
         public To7seg(RPi rpiref)
