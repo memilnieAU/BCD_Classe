@@ -83,10 +83,7 @@ namespace BCD_Classe
 
 
                 }
-                if (true)
-                {
-
-                }
+                
                 display.Disp_SevenSeg((short)bcdResult);
                 Thread.Sleep(testTime);
             }
