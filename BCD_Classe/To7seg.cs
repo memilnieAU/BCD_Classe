@@ -26,19 +26,24 @@ namespace BCD_Classe
     {
         
         private static RPI.Display.SevenSeg display;
+        private static Led led100;
 
         public To7seg(RPi rpiref)
         {
             display = new RPI.Display.SevenSeg(rpiref);
+            led100 = new RPI.Led(rpiref, Led.ID.LD1);
 
             display.Init_SevenSeg();
+            led100.off();
             ShowNum(88);
             Close();
+            
 
 
         }
 
         public void Test(string typeTest)
+        
         {
             int testAdd = 0;
             int testTime = 0;
@@ -53,12 +58,20 @@ namespace BCD_Classe
                 testTime = 75;
             }
 
-            for (int i = 0; i <= 99; i += testAdd)
+            for (int i = 0; i <= 199; i += testAdd)
             {
                 int bcdResult = 0;
                 int shift = 0;
                 int testTal = 0;
+             
+             
                 testTal = i;
+
+                led100.off();
+                if (testTal >= 100)
+                {
+                    led100.on();
+                }
                 while (testTal > 0)
                 {
 
@@ -68,6 +81,10 @@ namespace BCD_Classe
                     testTal /= 10;
 
 
+
+                }
+                if (true)
+                {
 
                 }
                 display.Disp_SevenSeg((short)bcdResult);
@@ -83,6 +100,13 @@ namespace BCD_Classe
         {
             int bcdResult = 0;
             int shift = 0;
+           
+            led100.off();
+            if (pulse >= 100)
+            {
+                led100.on();
+            }
+            
             while (pulse > 0)
             {
                 
@@ -105,6 +129,7 @@ namespace BCD_Classe
         public void Close()
         {
             display.Close_SevenSeg();
+            led100.off();
         }
 
 

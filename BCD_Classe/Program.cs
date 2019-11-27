@@ -19,27 +19,23 @@ namespace BCD_Classe
             To7seg to7Seg = new To7seg(Resp);
 
 
-             to7Seg.HwTestMode();
-            Console.WriteLine("Er tilbage i main");
-            Console.ReadLine();
-
-
-
+            to7Seg.HwTestMode(); //Denne kode kan skrives hvis man vil teste alle cifre
             
             //Denne komando er den eneste der skal bruges hvis der skal skrives noget til Display
+            //to7Seg.ShowNum(Convert.ToInt32(Console.ReadLine()));
+            //to7Seg.Close();
 
-            to7Seg.ShowNum(16);
+            
 
 
             Console.ReadLine();
-
-            
             
 
-            
 
-           
-        
+
+
+
+
         }
     }
 }
