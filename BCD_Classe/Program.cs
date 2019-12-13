@@ -14,7 +14,16 @@ namespace BCD_Classe
         private static Key startStop;
         private static RPI.Controller.PWM _pwm;
 
-        //Hej
+        //Hei
+
+
+            //HEJEHEJ
+
+
+            //HÅBER DET VIRKER
+
+    //HMM
+
 
         static void Main(string[] args)
         {
