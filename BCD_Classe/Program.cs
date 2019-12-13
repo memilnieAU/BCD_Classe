@@ -23,7 +23,8 @@ namespace BCD_Classe
             //HÅBER DET VIRKER
 
     //HMM
-
+    //teefav
+    //nkfeæwer
 
         static void Main(string[] args)
         {
