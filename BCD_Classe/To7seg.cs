@@ -21,7 +21,7 @@ namespace BCD_Classe
     /// 
     /// </summary>
 
-
+        //hej
     public class To7seg
     {
         
