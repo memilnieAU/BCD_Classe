@@ -17,8 +17,10 @@ namespace BCD_Classe
         //Heiiii
 
 
+
             //HEJ
             //TEST 2
+
 
 
             //HÅBER DET VIRKER
