@@ -21,14 +21,7 @@ namespace BCD_Classe
     /// 
     /// </summary>
 
-        //hej
 
-        //kadfljksf
-
-        //æsdfnlksndc
-
-
-        //dsfnladfnl-a
     public class To7seg
     {
         
