@@ -17,7 +17,7 @@ namespace BCD_Classe
         //Hei
 
 
-            //HEJEHEJ
+            //HEJEJ
 
 
             //HÅBER DET VIRKER
