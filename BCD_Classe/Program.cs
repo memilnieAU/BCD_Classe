@@ -14,21 +14,6 @@ namespace BCD_Classe
         private static Key startStop;
         private static RPI.Controller.PWM _pwm;
 
-        //Heiiii
-
-
-
-            //HEJ
-            //TEST 2
-
-
-
-            //HÅBER DET VIRKER
-
-    //HMM
-    //teefav
-    //nkfeæwer
-
         static void Main(string[] args)
         {
             Resp = new RPi();
@@ -95,10 +80,6 @@ namespace BCD_Classe
                     Console.WriteLine("false");
                 }
             }
-
-
-
-
         }
 
     }
