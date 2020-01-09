@@ -116,8 +116,8 @@ namespace BCD_Classe
 
             }
 
-
-
+            
+            
 
             //short sPulse = Convert.ToInt16(pulse);
             display.Disp_SevenSeg((short)bcdResult);

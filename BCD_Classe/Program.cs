@@ -13,11 +13,12 @@ namespace BCD_Classe
         private static RPi Resp;
         private static Key startStop;
         private static RPI.Controller.PWM _pwm;
+        private static RPI.Heart_Rate_Monitor.Puls puls_;
 
         static void Main(string[] args)
         {
             Resp = new RPi();
-
+            puls_ = new RPI.Heart_Rate_Monitor.Puls(Resp); //PULS MÅLER
             To7seg to7Seg = new To7seg(Resp);
             startStop = new RPI.Key(Resp, Key.ID.P1);
 
@@ -69,7 +70,8 @@ namespace BCD_Classe
 
             }
             _pwm.StopPWM();
-            while (true)
+           
+            while (!Console.KeyAvailable)
             {
                 if (startStop.isPressed() == true)
                 {
@@ -79,8 +81,35 @@ namespace BCD_Classe
                 {
                     Console.WriteLine("false");
                 }
+                
             }
+
+            while (true)
+            {
+                Console.WriteLine("Pulsprint test \n tryk enter for at starte testen");
+                Console.ReadLine();
+                puls_.StartPuls();
+                Console.WriteLine("Pulstesteten er startet, vent 10 sek før den slukke automatisk");
+                
+
+                for (int i = 0; i < 30; i++)
+                {
+                    Console.WriteLine(i);
+                    Thread.Sleep(1000);
+                    
+
+                }
+                Console.WriteLine("Din puls er: "+(puls_.ReadPuls()*2).ToString()) ;
+                Console.WriteLine("Din puls er: " + (puls_.ReadPuls()).ToString());
+
+                Thread.Sleep(1000);
+                
+            }
+
         }
+
+
+
 
     }
 }
